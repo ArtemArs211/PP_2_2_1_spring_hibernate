@@ -11,10 +11,10 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
 
-    @Column(name = "model")
+    @Column(name = "model", length = 30)
     private String model;
 
-    @Column(name = "series")
+    @Column(name = "series", length = 30)
     private int series;
 
     @OneToOne(mappedBy = "car")

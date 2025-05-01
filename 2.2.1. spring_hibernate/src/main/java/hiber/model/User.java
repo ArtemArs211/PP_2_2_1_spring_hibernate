@@ -11,13 +11,13 @@ public class User {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
 
-   @Column(name = "name")
+   @Column(name = "name", length = 30)
    private String firstName;
 
-   @Column(name = "last_name")
+   @Column(name = "last_name", length = 30)
    private String lastName;
 
-   @Column(name = "email")
+   @Column(name = "email", nullable = false, unique = true, length = 100)
    private String email;
 
    @OneToOne(cascade = CascadeType.ALL)
@@ -87,11 +87,11 @@ public class User {
       if (this == o) return true;
       if (o == null || getClass() != o.getClass()) return false;
       User user = (User) o;
-      return Objects.equals(id, user.id) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email) && Objects.equals(car, user.car);
+      return Objects.equals(id, user.id);
    }
 
    @Override
    public int hashCode() {
-      return Objects.hash(id, firstName, lastName, email, car);
+      return Objects.hash(id);
    }
 }
